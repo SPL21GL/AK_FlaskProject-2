@@ -34,6 +34,8 @@ class Gast(db.Model):
     Vorname = db.Column(db.String(120), nullable=False)
     Lebensalter = db.Column(db.Integer, nullable=False)
     Begleitung = db.Column(db.String(120), nullable=False)
+    Email = db.Column(db.String(120), nullable=False)
+
 
 
 
