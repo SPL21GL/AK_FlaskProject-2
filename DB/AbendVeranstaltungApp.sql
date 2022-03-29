@@ -18,7 +18,8 @@ GastId int auto_increment unique key primary key,
 Nachname varchar(120) not null,
 Vorname varchar(120) not null,
 Lebensalter int not null,
-Begleitung varchar(120) not null
+Begleitung varchar(120) not null,
+Email varchar(120) not null
 );
 
 create table if not exists  AbendVGast
@@ -36,4 +37,3 @@ Vorname varchar(120) not null,
 Arbeitszeit time not null,
 Lohn decimal not null
 )
-
