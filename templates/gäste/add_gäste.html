@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<h2>Add neuen Gast</h2>
+
+<form method="post">
+    {{form.csrf_token}}
+
+    <!-- {{ form.errors }} -->
+
+    <form class="needs-validation" novalidate>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom01">Nachname</label>
+            <input type="text" class="form-control"  required>
+          </div>
+
+
+
+    <div class="col-md-4 mb-3">
+        <label for="nachname" class="form-label">Nachname</label>
+        <input type="text" class="form-control"  required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="vorname" class="form-label">Vorname</label>
+        <input type="text" class="form-control"  required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="alter" class="form-label">Alter</label>
+        <input type="number" class="form-control"  required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="begleitung" class="form-label">Begleitung</label>
+        <div class="form-group">
+            <select selectfield class="form-control"    >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+    </div>
+
+    <button href="/gäste" type="button" class="btn btn-outline-success">Hinzufügen</button>
+
+</form>
+
+{%endblock%}
+
