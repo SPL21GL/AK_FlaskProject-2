@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <p class="fw-bold">Abendveranstaltung</p>
-  
-</html>
 
 <head>
   <meta charset="UTF-8" />
@@ -19,10 +16,9 @@
 </head>
 
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">😃</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,38 +26,50 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/products" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              🚗 Products
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/products">Anzeigen</a></li>
-              <li><a class="dropdown-item" href="/products/add">Hinzufügen</a></li>
-            </ul>
+            <a class="nav-link" href="/"> Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/orders">📦 Orders</a>
+            <a class="nav-link" href="/abendveranstaltungen">🥂Abendveranstaltungen</a> 
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/gäste">💃🕺Gäste</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/customers">👨‍💼 Customers</a>
+            <a class="nav-link" href="/reservierungsmitarbeiter" >🧍‍♀️🧍Reservierungsmitarbeiter</a> 
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/payments">💶 Payments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/employees">🧑‍🤝‍🧑 Employees</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/offices">🏘️ Offices</a>
-          </li>
+          
         </div>
       </div>
     </div>
   </nav>
+
+  
+
+  
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+  {% endwith %}
+
+
+  {%block body%} {%endblock%}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <script src="/static/deleteEintrag.js"></script>
+
+</body>
+
+</html>
 
 
