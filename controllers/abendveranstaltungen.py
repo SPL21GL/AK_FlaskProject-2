@@ -1,4 +1,3 @@
-from operator import imod
 from flask import Flask, redirect, request, flash, session
 from flask.templating import render_template
 from flask import Blueprint
@@ -10,13 +9,13 @@ from Model.models import Abendveranstaltung, Abendveranstaltung, db
 abendveranstaltungen_blueprint = Blueprint('abendveranstaltungen_blueprint', __name__)
 
 
-@abendveranstaltungen_blueprint.route("")
+@abendveranstaltungen_blueprint.route("/abendveranstaltungen")
 def abendveranstaltungen():
     
-    return render_template("")
+    return render_template("/abendveranstaltugen/abendveranstaltungen.html")
 
 
-@abendveranstaltungen_blueprint.route("", methods=["GET", "POST"])
+@abendveranstaltungen_blueprint.route("/abendveranstaltungen/add", methods=["GET", "POST"])
 def gast_add():
     session: sqlalchemy.orm.scoping.scoped_session = db.session
 
@@ -36,8 +35,8 @@ def gast_add():
                 db.session.add(new_abendveranstaltungen)
                 db.session.commit()
 
-                return redirect("/gäste")
-        #else:
-       #     return render_template("abendveranstaltungen/abendveranstaltungen.html", Abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
-   # else:
-       # return render_template("abendveranstaltungen/abendveranstaltungen.html", Abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
+                return redirect("/abendveranstaltungen")
+        else:
+            return render_template("abendveranstaltungen/abendveranstaltungen.html", Abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
+    else:
+        return render_template("abendveranstaltungen/abendveranstaltungen.html", Abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)

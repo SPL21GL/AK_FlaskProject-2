@@ -10,13 +10,13 @@ from Model.models import Gast, db
 gast_blueprint = Blueprint('gast_blueprint', __name__)
 
 
-@gast_blueprint.route("/gäste")
-def gäste():
+@gast_blueprint.route("/gaeste")
+def gaeste():
     
-    return render_template("gäste/gäste.html")
+    return render_template("gaeste/gaeste.html")
 
 
-@gast_blueprint.route("/gäste/add", methods=["GET", "POST"])
+@gast_blueprint.route("/gaeste/add", methods=["GET", "POST"])
 def gast_add():
     session: sqlalchemy.orm.scoping.scoped_session = db.session
 
@@ -36,10 +36,10 @@ def gast_add():
                 db.session.add(new_gast)
                 db.session.commit()
 
-                return redirect("/gäste")
+                return redirect("/gaeste")
         else:
-            return render_template("gäste/add_gäste.html", gast=Gast, form=add_gast_form)
+            return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
     else:
-        return render_template("gäste/add_gäste.html", gast=Gast, form=add_gast_form)
+        return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
 
         
