@@ -7,42 +7,34 @@
 <form method="post">
     {{form.csrf_token}}
 
-    <!-- {{ form.errors }} -->
-
     <form class="needs-validation" novalidate>
-          <div class="col-md-4 mb-3">
-            <label for="validationCustom01">Nachname</label>
-            <input type="text" class="form-control"  required>
-          </div>
-
-
-
+          
     <div class="col-md-4 mb-3">
         <label for="nachname" class="form-label">Nachname</label>
-        <input type="text" class="form-control"  required>
+        {{form.Nachname(class_="form-control")}}
     </div>
 
     <div class="col-md-4 mb-3">
         <label for="vorname" class="form-label">Vorname</label>
-        <input type="text" class="form-control"  required>
+        {{form.Vorname(class_="form-control")}}
     </div>
 
     <div class="col-md-4 mb-3">
         <label for="alter" class="form-label">Alter</label>
-        <input type="number" class="form-control"  required>
+        {{form.Alter(class_="form-control")}}
 
     </div>
 
      <div class="col-md-4 mb-3">
         <label for="begleitung" class="form-label">Begleitung</label>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
           <label class="form-check-label" for="exampleRadios1">
             None
           </label>
         </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
       <label class="form-check-label" for="exampleRadios1">
         1
       </label>
@@ -53,9 +45,8 @@
         2
       </label>
     </div>
-
-    <button href="/gaeste" type="button" class="btn btn-outline-success">Hinzufügen</button>
-
+  
+    <button type="submit" class="btn btn-primary">Hinzufügen</button>
 </form>
 
 {%endblock%}

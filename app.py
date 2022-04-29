@@ -7,12 +7,12 @@ from controllers.abendveranstaltungen import abendveranstaltungen_blueprint
 
 from flask_wtf.csrf import CSRFProtect
 
-import sqlalchemy
+
 app = Flask(__name__)
 app.secret_key = "VerySecretSecretKey"
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/Abendveranstaltung"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/AbendVeranstaltungApp"
 
 
 csrf = CSRFProtect(app)

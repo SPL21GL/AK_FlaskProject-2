@@ -32,7 +32,6 @@ def gast_add():
                 new_gast.Lebensalter = add_gast_form.Alter.data
                 new_gast.Begleitung = add_gast_form.Begleitung.data
             
-
                 db.session.add(new_gast)
                 db.session.commit()
 
@@ -42,4 +41,4 @@ def gast_add():
     else:
         return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
 
-        
+                

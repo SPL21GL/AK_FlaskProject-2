@@ -1,4 +1,3 @@
-from tokenize import String
 from flask_wtf import FlaskForm
 from wtforms.fields.simple import StringField
 from wtforms import HiddenField
