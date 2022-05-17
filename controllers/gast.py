@@ -1,9 +1,7 @@
-from operator import imod
 from flask import Flask, redirect, request, flash, session
 from flask.templating import render_template
 from flask import Blueprint
 import sqlalchemy
-import flask_sqlalchemy
 from forms.addGast import GastForm
 from Model.models import Gast, db
 
@@ -13,8 +11,10 @@ gast_blueprint = Blueprint('gast_blueprint', __name__)
 @gast_blueprint.route("/gaeste")
 def gaeste():
     
-    return render_template("gaeste/gaeste.html")
+    session: sqlalchemy.orm.scoping.scoped_session = db.session
+    gaeste = session.query(Gast).order_by(Gast.Nachname).all()
 
+    return render_template("gaeste/gaeste.html", gaeste = gaeste)
 
 @gast_blueprint.route("/gaeste/add", methods=["GET", "POST"])
 def gast_add():
@@ -40,5 +40,3 @@ def gast_add():
             return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
     else:
         return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
-
-                
