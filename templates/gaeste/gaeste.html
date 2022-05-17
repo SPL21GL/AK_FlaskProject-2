@@ -19,6 +19,24 @@
   </thead>
 
 </table>
+<tbody>
+
+  {% for gast in gaeste %}
+  <tr>
+    <td>{{gast.GastId}}</td>
+    <td>{{gast.Nachname}}</td>
+    <td>{{gast.vorname}}</td>
+    <td>{{gast.Alter}}</td>
+    <td>{{gast.Begleitung}}</td>
+  </tr>
+  {% endfor %}
+
+
+</tbody>
+</table>
+
+
+
 
 {%endblock%}
 

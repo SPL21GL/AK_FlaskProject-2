@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<h2>Add neue Abendveranstaltung</h2>
+
+<form method="post">
+    {{form.csrf_token}}
+
+    <form class="needs-validation" novalidate>
+          
+    <div class="col-md-4 mb-3">
+        <label for="Datum" class="form-label">Datum</label>
+        {{form.Datum(class_="form-control")}}
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="Tische" class="form-label">Tische</label>
+        {{form.Tische(class_="form-control")}}
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="Sessel" class="form-label">Sessel</label>
+        {{form.Sessel(class_="form-control")}}
+
+    </div>
+
+    <select class="custom-select">
+        <option selected>Musik</option>
+        <option value="Jazz">One</option>
+        <option value="Rock">Two</option>
+        <option value="Hip Hop">Three</option>
+      </select>
+  
+    <button type="submit" class="btn btn-primary">Hinzufügen</button>
+</form>
+
+
+
+
+{%endblock%}
+
