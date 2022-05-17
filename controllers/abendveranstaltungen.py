@@ -1,7 +1,8 @@
-from flask import Flask, redirect, request, flash, session
+from flask import Flask, redirect, request, flash
 from flask.templating import render_template
 from flask import Blueprint
 import sqlalchemy
+import sqlalchemy.orm
 from forms.addAbendveranstaltungen import AbendveranstaltungForm
 from Model.models import Abendveranstaltung, db
 
@@ -10,7 +11,6 @@ abendveranstaltungen_blueprint = Blueprint('abendveranstaltungen_blueprint', __n
 
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen")
 def abendveranstaltungen():
-    
     return render_template("abendveranstaltugen/abendveranstaltungen.html")
 
 

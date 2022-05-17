@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+
+<h2>Alle Reservationsmitarbeiter</h2>
+
+<a href="/gaeste/add" class="btn btn-outline-secondary">➕ Add New Reservationsmitarbeiter</a> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">MitarbeiterId</th>
+      <th scope="col">Nachname</th>
+      <th scope="col">Vorname</th>
+      <th scope="col">Arbeitszeit</th>
+      <th scope="col">Lohn</th>
+    </tr>
+  </thead>
+
+</table>
+<tbody>
+<!--
+  {% for gast in gaeste %}
+  <tr>
+    <td>{{gast.GastId}}</td>
+    <td>{{gast.Nachname}}</td>
+    <td>{{gast.vorname}}</td>
+    <td>{{gast.Alter}}</td>
+    <td>{{gast.Begleitung}}</td>
+  </tr>
+  {% endfor %}
+-->
+
+</tbody>
+</table>
+
+
+
+
+{%endblock%}
+

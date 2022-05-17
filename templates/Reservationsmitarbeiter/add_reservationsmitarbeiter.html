@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+<h2>Add neuen Reservationsmitarbeiter</h2>
+
+<form method="post">
+    {{form.csrf_token}}
+
+    <form class="needs-validation" novalidate>
+          
+    <div class="col-md-4 mb-3">
+        <label for="nachname" class="form-label" required>Nachname</label>
+        {{form.Nachname(class_="form-control")}}
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="vorname" class="form-label">Vorname</label>
+        {{form.Vorname(class_="form-control")}}
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="Arbeitszeit" class="form-label">Arbeitszeit</label>
+        {{form.Arbeitszeit(class_="form-control")}}
+    </div>
+    
+    
+
+    <div class="col-md-4 mb-3">
+      <label for="Lohn" class="form-label">Lohn</label>
+      {{form.Lohn(class_="form-control")}}      
+    </div>
+
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary">Hinzufügen</button>
+</form>
+
+
+
+
+{%endblock%}
+
