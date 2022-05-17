@@ -18,7 +18,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/AbendVerans
 csrf = CSRFProtect(app)
 
 db.init_app(app)
-
+0
 app.register_blueprint(index_blueprint)
 app.register_blueprint(gast_blueprint)
 app.register_blueprint(abendveranstaltungen_blueprint)
