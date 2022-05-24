@@ -1,4 +1,4 @@
-from flask import redirect, request, session
+from flask import Flask, redirect, request, flash, session
 from flask.templating import render_template
 from flask import Blueprint
 import sqlalchemy
@@ -6,15 +6,16 @@ from forms.addReservationsmitarbeiter import ReservationsmitarbeiterForm
 from Model.models import Reservationsmitarbeiter, db
 
 reservationsmitarbeiter_blueprint = Blueprint('reservationsmitarbeiter_blueprint', __name__)
+1
 
-
-@reservationsmitarbeiter_blueprint.route("/reservationsmitabeiter")
+@reservationsmitarbeiter_blueprint.route("/reservierungsmitarbeiter")
 def reservationsmitarbeiter():
+    session: sqlalchemy.orm.scoping.scoped_session = db.session
 
-    return render_template("/Reservationsmitarbeiter/reservationsmitarbeiter.html")
+    reservatiinsmitarbeiter = session.query(Reservationsmitarbeiter).all()
+    return render_template("reservationsmitarbeiter/reservationsmitarbeiter.html")
 
-
-@reservationsmitarbeiter_blueprint.route("/Reservationsmitarbeiter/add", methods=["GET", "POST"])
+@reservationsmitarbeiter_blueprint.route("/reservationsmitarbeiter/add", methods=["GET", "POST"])
 def reservationsmitarbeiter_add():
     session: sqlalchemy.orm.scoping.scoped_session = db.session
 
@@ -32,7 +33,7 @@ def reservationsmitarbeiter_add():
 
             db.session.add(new_reservationsmitarbeiter)
             db.session.commit()
-            return redirect("/reservationsmitarbeiter")
+            return redirect("/reservierungsmitarbeiter")
         else:
             return render_template("reservationsmitarbeiter/add_reservationsmitarbeiter.html", reservationsmitarbeiter=Reservationsmitarbeiter, form=add_reservationsmitarbeiter_form)
     else:

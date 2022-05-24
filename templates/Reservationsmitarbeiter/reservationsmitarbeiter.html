@@ -5,7 +5,7 @@
 
 <h2>Alle Reservationsmitarbeiter</h2>
 
-<a href="/gaeste/add" class="btn btn-outline-secondary">➕ Add New Reservationsmitarbeiter</a> 
+<a href="/reservationsmitarbeiter/add" class="btn btn-info">➕ Add New Reservationsmitarbeiter</a> 
 
 <table class="table">
   <thead>
@@ -20,17 +20,16 @@
 
 </table>
 <tbody>
-<!--
-  {% for gast in gaeste %}
+
+  {% for reservationsmitarbeiter in reservationsmitarbeiter %}
   <tr>
-    <td>{{gast.GastId}}</td>
-    <td>{{gast.Nachname}}</td>
-    <td>{{gast.vorname}}</td>
-    <td>{{gast.Alter}}</td>
-    <td>{{gast.Begleitung}}</td>
+    <td>{{reservationsmitarbeiter.MitarbeiterId}}</td>
+    <td>{{reservationsmitarbeiter.Nachname}}</td>
+    <td>{{reservationsmitarbeiter.vorname}}</td>
+    <td>{{reservationsmitarbeiter.Arbeitszeit}}</td>
+    <td>{{reservationsmitarbeiter.Lohn}}</td>
   </tr>
   {% endfor %}
--->
 
 </tbody>
 </table>

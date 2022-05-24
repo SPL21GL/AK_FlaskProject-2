@@ -10,11 +10,10 @@ gast_blueprint = Blueprint('gast_blueprint', __name__)
 
 @gast_blueprint.route("/gaeste")
 def gaeste():
-    
     session: sqlalchemy.orm.scoping.scoped_session = db.session
-    gaeste = session.query(Gast).order_by(Gast.Nachname).all()
 
-    return render_template("gaeste/gaeste.html", gaeste = gaeste)
+    gaeste = session.query(Gast).all()
+    return render_template("gaeste/gaeste.html",gaeste= gaeste)
 
 @gast_blueprint.route("/gaeste/add", methods=["GET", "POST"])
 def gast_add():
@@ -25,6 +24,7 @@ def gast_add():
     if request.method == 'POST':
 
         if add_gast_form.validate_on_submit():
+            
                 new_gast = Gast()
 
                 new_gast.Nachname = add_gast_form.Nachname.data

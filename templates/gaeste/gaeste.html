@@ -5,7 +5,7 @@
 
 <h2>Alle Gäste</h2>
 
-<a href="/gaeste/add" class="btn btn-outline-secondary">➕ Add New Gast</a> 
+<a href="/gaeste/add" class="btn btn-info">➕ Add New Gast</a> 
 
 <table class="table">
   <thead>
@@ -17,26 +17,27 @@
       <th scope="col">Begleitung</th>
     </tr>
   </thead>
+  <tbody>
 
+    {% for gast in gaeste %}
+    <tr>
+      <td>{{gast.GastId}}</td>
+      <td>{{gast.Nachname}}</td>
+      <td>{{gast.Vorname}}</td>
+      <td>{{gast.Lebensalter}}</td>
+      <td>{{gast.Begleitung}}</td>  
+      <td>
+        <a class="btn btn-outline-secondary" href="/gaeste/edit?GastId={{gast.GastId}}">✏️</a>
+        <form action="/gaeste/delete" method="post" style="display: inline;">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="GastId id="GastId" value="{{gast.GastId}}">
+          <a class="btn btn-outline-secondary" href="#" onclick="deleteGast(this); return false;">🗑️</a>
+        </form>
+      </td>    
+    </tr>
+    {% endfor %}
+
+  </tbody>
 </table>
-<tbody>
-
-  {% for gast in gaeste %}
-  <tr>
-    <td>{{gast.GastId}}</td>
-    <td>{{gast.Nachname}}</td>
-    <td>{{gast.vorname}}</td>
-    <td>{{gast.Alter}}</td>
-    <td>{{gast.Begleitung}}</td>
-  </tr>
-  {% endfor %}
-
-
-</tbody>
-</table>
-
-
-
 
 {%endblock%}
-
