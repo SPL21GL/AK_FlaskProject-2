@@ -16,6 +16,31 @@
       <th scope="col">Musik</th>
     </tr>
   </thead>
+  <tbody>
+
+    {% for Abendveranstaltung in abendveranstaltungen %}
+    <tr>
+      <td>{{gast.AbendveranstaltungId}}</td>
+      <td>{{gast.Datum}}</td>
+      <td>{{gast.Tische}}</td>
+      <td>{{gast.Sessel}}</td>
+      <td>{{gast.Musik}}</td>  
+      <!-- <td>
+        <a class="btn btn-outline-secondary" href="/gaeste/edit?GastId={{gast.GastId}}">✏️</a>
+        <form action="/gaeste/delete" method="post" style="display: inline;">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="GastId id="GastId" value="{{gast.GastId}}">
+          <a class="btn btn-outline-secondary" href="#" onclick="deleteGast(this); return false;">🗑️</a>
+        </form>
+      </td>     -->
+    </tr>
+  {% endfor %}
+
+</tbody>
+</table>
+
+
+
 
 </table>
 

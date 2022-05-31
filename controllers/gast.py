@@ -4,6 +4,7 @@ from flask import Blueprint
 import sqlalchemy
 from forms.addGast import GastForm
 from Model.models import Gast, db
+from forms.deleteGaeste import GeasteDeleteForm
 
 gast_blueprint = Blueprint('gast_blueprint', __name__)
 
@@ -40,3 +41,46 @@ def gast_add():
             return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
     else:
         return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
+
+
+@gast_blueprint.route("/gaeste/edit", methods=["GET", "POST"])
+def gast_edit():
+
+    session: sqlalchemy.orm.scoping.scoped_session = db.session
+
+    edit_gast = GastForm()
+
+    if request.method == "POST":
+        if edit_gast.validate_on_submit():
+            edit_gast.Nachname = edit_gast.Nachname.data
+            edit_gast.Vorname = edit_gast.Vorname.data
+            edit_gast.Alter = edit_gast.Alter.data
+            edit_gast.Begleitung = edit_gast.Begleitung.data
+
+            
+            db.session.commit()
+
+            return redirect("/gaeste")
+
+    return render_template("gaeste/edit_gaeste.html", form=edit_gast,)        
+
+
+@gast_blueprint.route("/gaeste/delete", methods=["post"])
+def deleteGast():
+
+    delete_gast_form_list = GeasteDeleteForm()
+    
+    if delete_gast_form_list.validate_on_submit():
+        GastId_to_delete = delete_gast_form_list.GastID.data
+        GastId_to_delete = db.session.query(Gast).filter(
+            Gast.GastId == GastId_to_delete)
+
+        GastId_to_delete.delete()
+
+        db.session.commit()
+    else:
+        print("Fatal Error")
+
+    flash(f"Gast with id {GastId_to_delete} has been deleted")
+
+    return redirect("/gaeste")        

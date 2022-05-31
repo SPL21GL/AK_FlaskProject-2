@@ -35,7 +35,7 @@ def abendveranstaltungen_add():
 
                 return redirect("/abendveranstaltungen")
         else:
-            return render_template("abendveranstaltung/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
+            return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
     else:
-        return render_template("abendveranstaltungen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
+        return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
         
