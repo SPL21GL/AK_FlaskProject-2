@@ -5,9 +5,7 @@ from controllers.index import index_blueprint
 from controllers.gast import gast_blueprint
 from controllers.abendveranstaltungen import abendveranstaltungen_blueprint
 from controllers.reservationsmitarbeiter import reservationsmitarbeiter_blueprint
-
 from flask_wtf.csrf import CSRFProtect
-
 
 app = Flask(__name__)
 app.secret_key = "VerySecretSecretKey"

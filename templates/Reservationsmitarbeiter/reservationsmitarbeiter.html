@@ -1,4 +1,4 @@
-<!-- {%extends 'base.html'%}
+{%extends 'base.html'%}
 
 {%block body%}
 
@@ -17,11 +17,9 @@
       <th scope="col">Lohn</th>
     </tr>
   </thead>
+  <tbody>
 
-</table>
-<tbody>
-
-  {% for reservationsmitarbeiter in reservationsmitarbeiter %}
+    {% for reservationsmitarbeiter in reservationsmitarbeiter %}
     <tr>
       <td>{{reservationsmitarbeiter.MitarbeiterId}}</td>
       <td>{{reservationsmitarbeiter.Nachname}}</td>
@@ -29,17 +27,17 @@
       <td>{{reservationsmitarbeiter.Arbeitszeit}}</td>
       <td>{{reservationsmitarbeiter.Lohn}}</td>  
       <td>
-        <a class="btn btn-outline-secondary" href="/gaeste/edit?GastId={{gast.GastId}}">✏️</a>
-        <form action="/gaeste/delete" method="post" style="display: inline;">
+        <a class="btn btn-outline-secondary" href="/reservationsmitarbeiter/MitarbeiterId?reser={{reservationsmitarbeiter.MitarbeiterId}}">✏️</a>
+        <form action="/reservationsmitarbeiter/delete" method="post" style="display: inline;">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-          <input type="hidden" name="GastId id="GastId" value="{{gast.GastId}}">
+          <input type="hidden" name="MitarbeiterId id="MitarbeiterId" value="{{reservationsmitarbeiter.MitarbeiterId}}">
           <a class="btn btn-outline-secondary" href="#" onclick="deleteGast(this); return false;">🗑️</a>
         </form>
       </td>    
     </tr>
     {% endfor %}
 
-</tbody>
+  </tbody>
 </table>
 
-{%endblock%} -->
+{%endblock%}

@@ -7,10 +7,6 @@
 <form method="post">
     {{form.csrf_token}}
 
-    <!-- {{ form.errors }} -->
-
-    <!--{{form.orderNumber}} -->
-
     <div class="mb-3">
         <label for="gastId" class="form-label">GastId</label>
         {{form.GastID(class_="form-control")}}
@@ -39,14 +35,5 @@
        
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-
-
-
-
-
-
-
-
-
+ 
 {%endblock%}

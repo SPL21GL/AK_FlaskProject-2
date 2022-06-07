@@ -62,7 +62,26 @@ def gast_edit():
 
             return redirect("/gaeste")
 
-    return render_template("gaeste/edit_gaeste.html", form=edit_gast,)        
+    return render_template("gaeste/edit_gaeste.html", form=edit_gast,)     
+
+
+@gast_blueprint.route("/gaeste", methods=["GET", "POST"])
+def showEditForm():
+    Gastid = request.args["GastID"]
+
+
+    gast_to_edit = db.session.query(Gast).filter(Gast.GastId == Gastid).first()
+    
+    editedForm = GastForm()
+
+    editedForm.GastID.data = gast_to_edit.GastID
+    editedForm.Nachname.data = gast_to_edit.Nachname
+    editedForm.Vorname.data = gast_to_edit.Vorname
+    editedForm.Alter.data = gast_to_edit.Alter
+    editedForm.Begleitung.data = gast_to_edit.Begleitung
+   
+    return render_template("edit_gaeste.html", form = GastForm)
+
 
 
 @gast_blueprint.route("/gaeste/delete", methods=["post"])
@@ -72,8 +91,7 @@ def deleteGast():
     
     if delete_gast_form_list.validate_on_submit():
         GastId_to_delete = delete_gast_form_list.GastID.data
-        GastId_to_delete = db.session.query(Gast).filter(
-            Gast.GastId == GastId_to_delete)
+        GastId_to_delete = db.session.query(Gast).filter(Gast.GastId == GastId_to_delete)
 
         GastId_to_delete.delete()
 
@@ -84,3 +102,8 @@ def deleteGast():
     flash(f"Gast with id {GastId_to_delete} has been deleted")
 
     return redirect("/gaeste")        
+
+
+
+
+
