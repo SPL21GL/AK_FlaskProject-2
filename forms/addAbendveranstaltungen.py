@@ -5,8 +5,6 @@ from wtforms.fields.simple import StringField
 from wtforms.fields.datetime import DateField
 from wtforms import HiddenField
 
-#from Model.models import Abendveranstaltung
-
 
 class AbendveranstaltungForm(FlaskForm):
     Abendveranstaltung_Id = HiddenField("AbendveranstaltungId")

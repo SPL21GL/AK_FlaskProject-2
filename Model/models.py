@@ -9,7 +9,7 @@ db = SQLAlchemy()
 class Abendveranstaltung(db.Model):
     __tablename__ = 'abendveranstaltung'
 
-    AdventveranstaltungId = db.Column(db.Integer, primary_key=True, unique=True)
+    AbentveranstaltungId = db.Column(db.Integer, primary_key=True, unique=True)
     Datum = db.Column(db.Date, nullable=False)
     Tische = db.Column(db.String(64), nullable=False)
     Sessel = db.Column(db.String(64), nullable=False)

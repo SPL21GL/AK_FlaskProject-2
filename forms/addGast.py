@@ -4,7 +4,7 @@ from wtforms import HiddenField
 
 
 class GastForm(FlaskForm):
-    GastID = HiddenField("GastID")
+    GastID = HiddenField("GastId")
     Nachname = StringField("Nachname")
     Vorname = StringField("Vorname")
     Alter = StringField("Alter")

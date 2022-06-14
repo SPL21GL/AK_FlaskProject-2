@@ -11,7 +11,7 @@ abendveranstaltungen_blueprint = Blueprint('abendveranstaltungen_blueprint', __n
 
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen")
 def abendveranstaltungen():
-    return render_template("abendveranstaltugen/abendveranstaltungen.html")
+    return render_template("abendveranstaltungen/abendveranstaltungen.html")
 
 
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen/add", methods=["GET", "POST"])
@@ -35,7 +35,7 @@ def abendveranstaltungen_add():
 
                 return redirect("/abendveranstaltungen")
         else:
-            return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
+            return render_template("abendveranstaltungen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
     else:
-        return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
+        return render_template("abendveranstaltungen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
         
