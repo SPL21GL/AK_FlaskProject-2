@@ -2,10 +2,10 @@
 
 {%block body%}
 
-
 <h2>Alle Abendveranstaltungen</h2>
 
 <a href="/abendveranstaltungen/add" class="btn btn-outline-info">➕ Add New Abendveranstaltung</a> 
+
 <table class="table">
   <thead>
     <tr>
@@ -18,21 +18,21 @@
   </thead>
   <tbody>
 
-    {% for abendveranstaltung in abendveranstaltungen %}
+    {% for abendveranstaltung in abendveranstaltugen %}
     <tr>
       <td>{{abendveranstaltung.AbentveranstaltungId}}</td>
       <td>{{abendveranstaltung.Datum}}</td>
       <td>{{abendveranstaltung.Tische}}</td>
       <td>{{abendveranstaltung.Sessel}}</td>
-      <td>{{abendveranstaltung.Musik}}</td>  
-      <!-- <td>
-        <a class="btn btn-outline-secondary" href="/abendveranstaltungen/edit?AbentveranstaltungId={{abendveranstaltung.AbentveranstaltungId}}">✏️</a>
-        <form action="/abendveranstaltungen/delete" method="post" style="display: inline;">
+      <td>{{abendveranstaltung.Musik}}</td> 
+      <td>
+        <a class="btn btn-outline-warning" href="/abendveranstaltugen/edit?AbentveranstaltungId={{abendveranstaltung.AbentveranstaltungId}}">✏️</a>
+        <form action="/abendveranstaltugen/delete" method="post" style="display: inline;">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-          <input type="hidden" name="AbentveranstaltungId id="AbentveranstaltungId" value="{{abendveranstaltung.AbentveranstaltungId}}">
+          <input type="hidden" name="AbentveranstaltungId" id="AbentveranstaltungId" value="{{abendveranstaltung.AbentveranstaltungId}}">
           <a class="btn btn-outline-secondary" href="#" onclick="deleteVeranstaltung(this); return false;">🗑️</a>
         </form>
-      </td>     -->
+      </td>    
     </tr>
     {% endfor %}
 
@@ -40,4 +40,3 @@
 </table>
 
 {%endblock%}
-

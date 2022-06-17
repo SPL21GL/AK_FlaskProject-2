@@ -6,12 +6,13 @@ import sqlalchemy.orm
 from forms.addAbendveranstaltungen import AbendveranstaltungForm
 from Model.models import Abendveranstaltung, db
 
-abendveranstaltungen_blueprint = Blueprint('abendveranstaltungen_blueprint', __name__)
+abendveranstaltungen_blueprint = Blueprint(
+    'abendveranstaltungen_blueprint', __name__)
 
 
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen")
 def abendveranstaltungen():
-    return render_template("abendveranstaltungen/abendveranstaltungen.html")
+    return render_template("abendveranstaltugen/abendveranstaltungen.html")
 
 
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen/add", methods=["GET", "POST"])
@@ -21,21 +22,20 @@ def abendveranstaltungen_add():
     add_abendveranstaltungen_form = AbendveranstaltungForm()
 
     if request.method == 'POST':
- 
+
         if add_abendveranstaltungen_form.validate_on_submit():
-                new_abendveranstaltungen = Abendveranstaltung()
+            new_abendveranstaltungen = Abendveranstaltung()
 
-                new_abendveranstaltungen.Datum = add_abendveranstaltungen_form.Datum.data
-                new_abendveranstaltungen.Tische = add_abendveranstaltungen_form.Tische.data
-                new_abendveranstaltungen.Sessel = add_abendveranstaltungen_form.Sessel.data
-                new_abendveranstaltungen.Musik = add_abendveranstaltungen_form.Musik.data
-            
-                db.session.add(new_abendveranstaltungen)
-                db.session.commit()
+            new_abendveranstaltungen.Datum = add_abendveranstaltungen_form.Datum.data
+            new_abendveranstaltungen.Tische = add_abendveranstaltungen_form.Tische.data
+            new_abendveranstaltungen.Sessel = add_abendveranstaltungen_form.Sessel.data
+            new_abendveranstaltungen.Musik = add_abendveranstaltungen_form.Musik.data
 
-                return redirect("/abendveranstaltungen")
+            db.session.add(new_abendveranstaltungen)
+            db.session.commit()
+
+            return redirect("/abendveranstaltungen")
         else:
-            return render_template("abendveranstaltungen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
+            return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
     else:
-        return render_template("abendveranstaltungen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
-        
+        return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)

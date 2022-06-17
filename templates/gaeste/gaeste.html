@@ -26,7 +26,7 @@
       <td>{{gast.Lebensalter}}</td>
       <td>{{gast.Begleitung}}</td>  
       <td>
-        <a class="btn btn-outline-secondary" href="/gaeste/edit?GastId={{gast.GastId}}">✏️</a>
+        <a class="btn btn-outline-warning" href="/gaeste/edit?GastId={{gast.GastId}}">✏️</a>
         <form action="/gaeste/delete" method="post" style="display: inline;">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
           <input type="hidden" name="GastId" id="GastId" value="{{gast.GastId}}">
