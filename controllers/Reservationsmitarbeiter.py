@@ -5,15 +5,18 @@ import sqlalchemy
 from forms.addReservationsmitarbeiter import ReservationsmitarbeiterForm
 from Model.models import Reservationsmitarbeiter, db
 
-reservationsmitarbeiter_blueprint = Blueprint('reservationsmitarbeiter_blueprint', __name__)
+reservationsmitarbeiter_blueprint = Blueprint(
+    'reservationsmitarbeiter_blueprint', __name__)
 1
+
 
 @reservationsmitarbeiter_blueprint.route("/reservierungsmitarbeiter")
 def reservationsmitarbeiter():
     session: sqlalchemy.orm.scoping.scoped_session = db.session
 
-    reservatiinsmitarbeiter = session.query(Reservationsmitarbeiter).all()
-    return render_template("reservationsmitarbeiter/reservationsmitarbeiter.html")
+    reservationsmitarbeiter = session.query(Reservationsmitarbeiter).all()
+    return render_template("reservationsmitarbeiter/reservationsmitarbeiter.html", reservationsmitarbeiter=reservationsmitarbeiter)
+
 
 @reservationsmitarbeiter_blueprint.route("/reservationsmitarbeiter/add", methods=["GET", "POST"])
 def reservationsmitarbeiter_add():

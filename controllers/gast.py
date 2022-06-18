@@ -31,7 +31,7 @@ def gast_add():
 
             new_gast.Nachname = add_gast_form.Nachname.data
             new_gast.Vorname = add_gast_form.Vorname.data
-            new_gast.Lebensalter = add_gast_form.Lebensalter
+            new_gast.Lebensalter = add_gast_form.Alter.data
             new_gast.Begleitung = add_gast_form.Begleitung.data
 
             db.session.add(new_gast)
@@ -59,7 +59,7 @@ def gast_edit():
 
             gast_to_edit.Nachname = edit_gast.Nachname.data
             gast_to_edit.Vorname = edit_gast.Vorname.data
-            gast_to_edit.Alter = edit_gast.Alter.data
+            gast_to_edit.Lebensalter = edit_gast.Alter.data
             gast_to_edit.Begleitung = edit_gast.Begleitung.data
 
             db.session.commit()

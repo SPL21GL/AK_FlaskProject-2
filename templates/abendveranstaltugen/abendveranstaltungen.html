@@ -18,18 +18,18 @@
   </thead>
   <tbody>
 
-    {% for abendveranstaltung in abendveranstaltugen %}
+    {% for abendveranstaltung in abendveranstaltungen %}
     <tr>
-      <td>{{abendveranstaltung.AbentveranstaltungId}}</td>
+      <td>{{abendveranstaltung.AbendveranstaltungId}}</td>
       <td>{{abendveranstaltung.Datum}}</td>
       <td>{{abendveranstaltung.Tische}}</td>
       <td>{{abendveranstaltung.Sessel}}</td>
       <td>{{abendveranstaltung.Musik}}</td> 
       <td>
-        <a class="btn btn-outline-warning" href="/abendveranstaltugen/edit?AbentveranstaltungId={{abendveranstaltung.AbentveranstaltungId}}">✏️</a>
+        <a class="btn btn-outline-warning" href="/abendveranstaltugen/edit?AbendveranstaltungId={{abendveranstaltung.AbendveranstaltungId}}">✏️</a>
         <form action="/abendveranstaltugen/delete" method="post" style="display: inline;">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-          <input type="hidden" name="AbentveranstaltungId" id="AbentveranstaltungId" value="{{abendveranstaltung.AbentveranstaltungId}}">
+          <input type="hidden" name="AbendveranstaltungId" id="AbendveranstaltungId" value="{{abendveranstaltung.AbendveranstaltungId}}">
           <a class="btn btn-outline-secondary" href="#" onclick="deleteVeranstaltung(this); return false;">🗑️</a>
         </form>
       </td>    

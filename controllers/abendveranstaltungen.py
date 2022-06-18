@@ -12,7 +12,10 @@ abendveranstaltungen_blueprint = Blueprint(
 
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen")
 def abendveranstaltungen():
-    return render_template("abendveranstaltugen/abendveranstaltungen.html")
+    session: sqlalchemy.orm.scoping.scoped_session = db.session
+
+    abendveranstaltungen = session.query(Abendveranstaltung).all()
+    return render_template("abendveranstaltugen/abendveranstaltungen.html", abendveranstaltungen=abendveranstaltungen)
 
 
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen/add", methods=["GET", "POST"])
@@ -35,7 +38,5 @@ def abendveranstaltungen_add():
             db.session.commit()
 
             return redirect("/abendveranstaltungen")
-        else:
-            return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
     else:
         return render_template("abendveranstaltugen/add_abendveranstaltung.html", abendveranstaltung=Abendveranstaltung, form=add_abendveranstaltungen_form)
