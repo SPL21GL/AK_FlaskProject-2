@@ -43,5 +43,5 @@ class Reservationsmitarbeiter(db.Model):
     MitarbeiterId = db.Column(db.Integer, primary_key=True, unique=True)
     Nachname = db.Column(db.String(120), nullable=False)
     Vorname = db.Column(db.String(120), nullable=False)
-    Arbeitszeit = db.Column(db.Time, nullable=False)
+    Arbeitszeit = db.Column(db.String(120), nullable=False)
     Lohn = db.Column(db.Numeric(10, 0), nullable=False)

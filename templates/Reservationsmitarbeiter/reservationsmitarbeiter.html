@@ -14,7 +14,7 @@
       <th scope="col">Nachname</th>
       <th scope="col">Vorname</th>
       <th scope="col">Arbeitszeit</th>
-      <th scope="col">Lohn</th>
+      <th scope="col">Lohn in €/h</th>
     </tr>
   </thead>
   <tbody>
@@ -26,12 +26,12 @@
       <td>{{reservationsmitarbeiter.Vorname}}</td>
       <td>{{reservationsmitarbeiter.Arbeitszeit}}</td>
       <td>{{reservationsmitarbeiter.Lohn}}</td>  
-      <td>
-        <a class="btn btn-outline-secondary" href="/reservationsmitarbeiter/MitarbeiterId?reser={{reservationsmitarbeiter.MitarbeiterId}}">✏️</a>
+      <td>                                                              
+        <a class="btn btn-outline-warning" href="/reservationsmitarbeiter/edit?MitarbeiterId={{reservationsmitarbeiter.MitarbeiterId}}">✏️</a>
         <form action="/reservationsmitarbeiter/delete" method="post" style="display: inline;">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-          <input type="hidden" name="MitarbeiterId id="MitarbeiterId" value="{{reservationsmitarbeiter.MitarbeiterId}}">
-          <a class="btn btn-outline-secondary" href="#" onclick="deleteGast(this); return false;">🗑️</a>
+          <input type="hidden" name="MitarbeiterId" id="MitarbeiterId" value="{{reservationsmitarbeiter.MitarbeiterId}}">
+          <a class="btn btn-outline-danger" href="#" onclick="deleteReservationsmitarbeiter(this); return false;">🗑️</a>
         </form>
       </td>    
     </tr>

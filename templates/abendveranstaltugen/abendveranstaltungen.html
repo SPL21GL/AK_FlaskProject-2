@@ -30,7 +30,7 @@
         <form action="/abendveranstaltugen/delete" method="post" style="display: inline;">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
           <input type="hidden" name="AbendveranstaltungId" id="AbendveranstaltungId" value="{{abendveranstaltung.AbendveranstaltungId}}">
-          <a class="btn btn-outline-secondary" href="#" onclick="deleteAbendveranstaltungen(this); return false;">🗑️</a>
+          <a class="btn btn-outline-danger" href="#" onclick="deleteAbendveranstaltungen(this); return false;">🗑️</a>
         </form>
       </td>    
     </tr>

@@ -5,6 +5,11 @@ from sqlalchemy import Integer
 from wtforms.fields.simple import StringField
 from wtforms.fields.datetime import DateField
 from wtforms import HiddenField
+from wtforms.fields import SelectField
+
+
+choices = [("Klassik", "Klassik"), ("Jazz", "Jazz"), ("Schlager", "Schlager"), ("Pop", "Pop"), ("Rock",
+                                                                                                "Rock"), ("Hip-Hop", "Hip-Hop"), ("Techno", "Techno"), ("Elektro", "Elektro")]
 
 
 class AbendveranstaltungForm(FlaskForm):
@@ -12,4 +17,4 @@ class AbendveranstaltungForm(FlaskForm):
     Datum = DateField("Datum")
     Tische = StringField("Tische")
     Sessel = StringField("Sessel")
-    Musik = StringField("Musik")
+    Musik = SelectField("Musik", choices=choices)

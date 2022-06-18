@@ -19,7 +19,3 @@ function deleteReservationsmitarbeiter(element) {
         element.parentElement.submit();
     }
 }
-
-/* 
-document.querySelector("a[href='/products']").classList.add("active")
-*/

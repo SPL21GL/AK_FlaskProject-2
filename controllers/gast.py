@@ -74,8 +74,6 @@ def gast_edit():
         edit_gast.Alter.data = gast_to_edit.Lebensalter
         edit_gast.Begleitung.data = gast_to_edit.Begleitung
 
-        return render_template("gaeste/edit_gaeste.html", form=edit_gast)
-
     return render_template("gaeste/edit_gaeste.html", form=edit_gast)
 
 
