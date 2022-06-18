@@ -2,13 +2,17 @@
 
 {%block body%}
 
-<h2>Add neue Abendveranstaltung</h2>
+<h2>Edit Abendveranstaltung</h2>
 
 <form method="post">
     {{form.csrf_token}}
 
-    <form class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="AbendveranstaltungId" class="form-label">AbendveranstaltungId</label>
+        {{form.AbendveranstaltungId(class_="form-control")}}    
+    </div> 
           
+
     <div class="col-md-4 mb-3">
         <label for="Datum" class="form-label">Datum</label>
         {{form.Datum(class_="form-control")}}
