@@ -13,7 +13,6 @@ app.secret_key = "VerySecretSecretKey"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:root@localhost/AbendVeranstaltungApp"
 
-
 csrf = CSRFProtect(app)
 
 db.init_app(app)

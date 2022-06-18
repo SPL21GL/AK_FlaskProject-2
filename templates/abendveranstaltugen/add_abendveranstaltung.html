@@ -8,31 +8,31 @@
     {{form.csrf_token}}
 
     <form class="needs-validation" novalidate>
-          
-    <div class="col-md-4 mb-3">
-        <label for="Datum" class="form-label">Datum</label>
-        {{form.Datum(class_="form-control")}}
-    </div>
 
-    <div class="col-md-4 mb-3">
-        <label for="Tische" class="form-label">Tische</label>
-        {{form.Tische(class_="form-control")}}
-    </div>
+        <div class="col-md-4 mb-3">
+            <label for="Datum" class="form-label">Datum</label>
+            {{form.Datum(class_="form-control")}}
+        </div>
 
-    <div class="col-md-4 mb-3">
-        <label for="Sessel" class="form-label">Sessel</label>
-        {{form.Sessel(class_="form-control")}}
+        <div class="col-md-4 mb-3">
+            <label for="Tische" class="form-label">Tische</label>
+            {{form.Tische(class_="form-control")}}
+        </div>
 
-    </div>
+        <div class="col-md-4 mb-3">
+            <label for="Sessel" class="form-label">Sessel(Tische x 4)</label>
+            {{form.Sessel(class_="form-control")}}
 
-    <div class="col-md-4 mb-3">
-        <label for="Musik" class="form-label">Musik</label>
-        {{form.Musik(class_="form-control")}}
+        </div>
 
-    </div>
+        <div class="col-md-4 mb-3">
+            <label for="Musik" class="form-label">Musik</label>
+            {{form.Musik(class_="form-control")}}
 
-    <button type="submit" class="btn btn-primary">Hinzufügen</button>
-</form>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Hinzufügen</button>
+    </form>
 
 
-{%endblock%}
+    {%endblock%}

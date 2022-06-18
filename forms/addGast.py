@@ -13,5 +13,3 @@ class GastForm(FlaskForm):
     Vorname = StringField("Vorname", [validators.InputRequired()])
     Alter = StringField("Alter", [validators.InputRequired()])
     Begleitung = SelectField("Begleitung", choices=choices)
-
-

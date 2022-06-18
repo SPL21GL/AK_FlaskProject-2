@@ -22,7 +22,6 @@ def abendveranstaltungen():
 @abendveranstaltungen_blueprint.route("/abendveranstaltungen/add", methods=["GET", "POST"])
 def abendveranstaltungen_add():
     session: sqlalchemy.orm.scoping.scoped_session = db.session
-
     add_abendveranstaltungen_form = AbendveranstaltungForm()
 
     if request.method == 'POST':
@@ -47,7 +46,6 @@ def abendveranstaltungen_add():
 def abendveranstaltung_edit():
 
     session: sqlalchemy.orm.scoping.scoped_session = db.session
-
     edit_abendveranstaltung = AbendveranstaltungForm()
 
     if request.method == "POST":
@@ -90,7 +88,6 @@ def deleteAbendveranstaltungen():
         db.session.commit()
     else:
         print("Fatal Error")
-
-    flash(f"Abendveranstaltung with id {AbendveranstaltungId_to_delete} has been deleted")
-
-    return redirect("/abendveranstaltungen")    
+    flash(
+        f"Abendveranstaltung with id {AbendveranstaltungId_to_delete} has been deleted")
+    return redirect("/abendveranstaltungen")
