@@ -38,8 +38,6 @@ def gast_add():
             db.session.commit()
 
             return redirect("/gaeste")
-        else:
-            return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
     else:
         return render_template("gaeste/add_gaeste.html", gast=Gast, form=add_gast_form)
 

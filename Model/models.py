@@ -10,7 +10,7 @@ class Abendveranstaltung(db.Model):
     __tablename__ = 'abendveranstaltung'
 
     AbendveranstaltungId = db.Column(db.Integer, primary_key=True, unique=True)
-    Datum = db.Column(db.Date, nullable=False)
+    Datum = db.Column(db.Date)
     Tische = db.Column(db.String(64), nullable=False)
     Sessel = db.Column(db.String(64), nullable=False)
     Musik = db.Column(db.String(64), nullable=False)
